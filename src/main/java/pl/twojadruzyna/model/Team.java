@@ -16,7 +16,7 @@ public class Team {
     private String shortName;
     private String country;
     private String city;
-    private Date dateOfCreation;
+    private Date foundedDate;
     private Long points;
     @OneToMany(cascade= CascadeType.ALL, fetch= FetchType.EAGER)
     private Set<Player> players;

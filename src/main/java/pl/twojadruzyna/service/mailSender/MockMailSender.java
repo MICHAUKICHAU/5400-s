@@ -1,5 +1,8 @@
 package pl.twojadruzyna.service.mailSender;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MockMailSender implements IMailSender {
 
     @Override

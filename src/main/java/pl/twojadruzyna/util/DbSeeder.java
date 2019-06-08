@@ -42,7 +42,7 @@ public class DbSeeder implements CommandLineRunner {
         var team = new Team();
         team.setName("MOTOR BOGUCICE");
         team.setCity("Bogucice");
-        team.setDateOfCreation(new Date());
+        team.setFoundedDate(new Date());
         team.setCountry("POLSKA");
         team.setShortName("FC MOTOR");
 

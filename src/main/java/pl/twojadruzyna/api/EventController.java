@@ -2,13 +2,11 @@ package pl.twojadruzyna.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.twojadruzyna.model.Event;
 import pl.twojadruzyna.service.EventService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -23,8 +21,15 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping("/all")
+    @GetMapping()
     public ResponseEntity<List<Event>> getEventsList() {
         return ResponseEntity.ok(eventService.getAllEvents());
     }
+
+    @PostMapping("/result")
+    public void saveResults(@RequestBody @Valid Event event) {
+        eventService.saveResult(event);
+    }
+
+
 }

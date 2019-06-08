@@ -20,5 +20,13 @@ public class EventService {
     public List<Event> getAllEvents(){
         return eventRepo.findAll();
     }
+
+    public void saveResult(Event event){
+        eventRepo.save(event);
+    }
+
+    private void updateTotalScores(){
+
+    }
 }
 
