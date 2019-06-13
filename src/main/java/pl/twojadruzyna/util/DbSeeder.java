@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
+import pl.twojadruzyna.model.Event;
 import pl.twojadruzyna.model.Player;
 import pl.twojadruzyna.model.Team;
 import pl.twojadruzyna.repo.EventRepo;
 import pl.twojadruzyna.repo.PlayerRepo;
 import pl.twojadruzyna.repo.TeamRepo;
 
+import java.util.Arrays;
 import java.util.Date;
 
 @Component
@@ -45,6 +47,37 @@ public class DbSeeder implements CommandLineRunner {
         team.setFoundedDate(new Date());
         team.setCountry("POLSKA");
         team.setShortName("FC MOTOR");
+
+        var team2 = new Team();
+        team2.setName("BKS BIELSKO");
+        team2.setCity("Bielsko-Biala");
+        team2.setFoundedDate(new Date());
+        team2.setCountry("POLSKA");
+        team2.setShortName("BKS");
+
+
+
+        Event event = new Event();
+        event.setMyTeam(team);
+        event.setTeams(Arrays.asList(team,team2));
+        event.setMatchDate(new Date());
+        event.setCity("Bielsko-Biala");
+        event.setCountry("Polska");
+        event.setMyTeamScores(2);
+        event.setOppositeTeamScores(2);
+
+        Event event2 = new Event();
+        event2.setMyTeam(team2);
+        event2.setTeams(Arrays.asList(team,team2));
+        event2.setMatchDate(new Date());
+        event2.setCity("Bielsko-Biala");
+        event2.setCountry("Polska");
+        event2.setMyTeamScores(2);
+        event2.setOppositeTeamScores(2);
+
+        this.teamRepo.saveAll(Arrays.asList(team, team2));
+
+        this.eventRepo.save(event);
 
         System.out.println(INITIALIZED_DATABASE_MESSAGE);
     }

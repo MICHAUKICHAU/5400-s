@@ -3,6 +3,7 @@ package pl.twojadruzyna.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.twojadruzyna.api.ViewModel.EventViewModel;
 import pl.twojadruzyna.model.Event;
 import pl.twojadruzyna.service.EventService;
 
@@ -22,7 +23,7 @@ public class EventController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Event>> getEventsList() {
+    public ResponseEntity<List<EventViewModel>> getEventsList() {
         return ResponseEntity.ok(eventService.getAllEvents());
     }
 
