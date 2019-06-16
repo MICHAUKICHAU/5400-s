@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,13 +24,10 @@ public class Event implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_event")
     private Long id;
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "my_team_id")
     private Team myTeam;
     @ManyToMany()
-    @JoinTable(name = "teams",
-            joinColumns = @JoinColumn(name = "gameId"),
-            inverseJoinColumns = @JoinColumn(name = "schedule"))
     private List<Team> teams = new ArrayList<>();
     private Integer oppositeTeamScores;
     private Integer myTeamScores;
