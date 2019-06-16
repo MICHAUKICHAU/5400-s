@@ -11,6 +11,10 @@ public class PhoneNumberValidatorImpl implements ConstraintValidator<PhoneNumber
 
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        return s.matches("^((\\+|00)48)?[0-9]{9}$") || s.matches("^((\\+|00)[0-9]{2})?[0-9]{9,13}$");
+        if (!s.isEmpty()) {
+            return s.matches("^((\\+|00)48)?[0-9]{9}$") || s.matches("^((\\+|00)[0-9]{2})?[0-9]{9,13}$");
+        }
+
+        return true;
     }
 }

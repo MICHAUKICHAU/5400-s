@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.twojadruzyna.api.ViewModel.EventViewModel;
-import pl.twojadruzyna.model.Event;
 import pl.twojadruzyna.service.EventService;
 
 import javax.validation.Valid;
