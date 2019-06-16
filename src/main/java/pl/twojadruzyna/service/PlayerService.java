@@ -25,6 +25,6 @@ public class PlayerService {
 
     public Player getPlayerById(Long playerId) {
         return playerRepo.findById(playerId)
-                .orElseThrow((() -> new ResourceNotFoundException("Player", "playerId", playerId)));
+                .orElseThrow((() -> new ResourceNotFoundException(Player.class.getName(), "playerId", playerId)));
     }
 }
