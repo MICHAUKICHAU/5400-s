@@ -25,4 +25,8 @@ public class TeamService {
         return converter.convertToViewModelList(teamRepo.findAll());
     }
 
+    public void saveTeam(TeamViewModel teamViewModel){
+        this.teamRepo.save(converter.convertToEntity(teamViewModel));
+    }
+
 }

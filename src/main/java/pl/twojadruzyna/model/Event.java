@@ -39,6 +39,5 @@ public class Event implements Serializable {
     private String stadiumName;
     private String country;
     private String city;
-    @NotNull
     private Date matchDate;
 }

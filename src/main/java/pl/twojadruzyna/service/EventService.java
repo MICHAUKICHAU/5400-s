@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.twojadruzyna.api.ViewModel.EventViewModel;
 import pl.twojadruzyna.converter.impl.EventConverter;
-import pl.twojadruzyna.model.Event;
 import pl.twojadruzyna.repo.EventRepo;
 
 import java.util.List;
@@ -24,8 +23,8 @@ public class EventService {
         return converter.convertToEventList(eventRepo.findAll());
     }
 
-    public void saveResult(Event event) {
-        eventRepo.save(event);
+    public void saveResult(EventViewModel event) {
+        eventRepo.save(converter.convertToEntity(event));
     }
 
     private void updateTotalScores() {

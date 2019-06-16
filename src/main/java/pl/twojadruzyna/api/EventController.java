@@ -27,8 +27,8 @@ public class EventController {
         return ResponseEntity.ok(eventService.getAllEvents());
     }
 
-    @PostMapping("/result")
-    public void saveResults(@RequestBody @Valid Event event) {
+    @PostMapping("/save")
+    public void saveResults(@RequestBody @Valid EventViewModel event) {
         eventService.saveResult(event);
     }
 

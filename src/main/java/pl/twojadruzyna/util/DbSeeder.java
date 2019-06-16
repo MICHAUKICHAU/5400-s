@@ -17,7 +17,6 @@ import java.util.Date;
 @Component
 @ConditionalOnProperty(name = "db.seder.active", havingValue = "true")
 public class DbSeeder implements CommandLineRunner {
-
     private static final String INITIALIZED_DATABASE_MESSAGE = "Initialized database";
     private TeamRepo teamRepo;
     private PlayerRepo playerRepo;

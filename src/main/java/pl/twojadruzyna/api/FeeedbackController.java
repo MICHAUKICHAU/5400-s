@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import pl.twojadruzyna.api.ViewModel.FeedbackViewModel;
 import pl.twojadruzyna.service.mailSender.IMailSender;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/feedback")
 @CrossOrigin
@@ -17,7 +19,7 @@ public class FeeedbackController {
     }
 
     @PostMapping("/send")
-    public void sendFeedback(FeedbackViewModel feedbackViewModel) {
+    public void sendFeedback(@RequestBody @Valid FeedbackViewModel feedbackViewModel) {
         this.mailSender.sendEmail
                 (feedbackViewModel.getEmail(),
                         feedbackViewModel.getAuthor() + "'s feedback",

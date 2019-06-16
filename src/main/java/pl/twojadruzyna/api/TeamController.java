@@ -2,13 +2,11 @@ package pl.twojadruzyna.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.twojadruzyna.api.ViewModel.TeamViewModel;
 import pl.twojadruzyna.service.TeamService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -28,4 +26,8 @@ public class TeamController {
         return ResponseEntity.ok(teamService.getAllTeams());
     }
 
+    @PostMapping("/save")
+    public void saveTeam(@Valid @RequestBody TeamViewModel team) {
+        this.teamService.saveTeam(team);
+    }
 }

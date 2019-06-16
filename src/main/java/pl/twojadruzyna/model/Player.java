@@ -15,7 +15,7 @@ public class Player {
     private Long id;
     private String firstName;
     private String secondName;
-    @OneToOne(cascade= CascadeType.ALL, fetch= FetchType.EAGER)
+    @ManyToOne(cascade= CascadeType.ALL, fetch= FetchType.EAGER)
     private Team team;
     private Position position;
     private Gender gender;
